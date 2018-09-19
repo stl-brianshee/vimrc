@@ -35,7 +35,9 @@ set cmdheight=2
 " Less blinding
 colorscheme desert
 
+set ignorecase
 set smartcase
+
 set expandtab
 
 set hlsearch
