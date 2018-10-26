@@ -65,7 +65,7 @@ au FileType py
     \ setlocal fileformat=unix
 
 " Frontend development
-au FileType js,javascript,html,css
+au FileType js,javascript,html,css,less
     \ setlocal tabstop=4 |
     \ setlocal softtabstop=4 |
     \ setlocal shiftwidth=4 |
@@ -87,6 +87,9 @@ nnoremap <C-H> <C-W><C-H>
 " Update .vimrc quickly
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Easier normal mode
+inoremap jk <esc>
 
 " Natural splits
 set splitbelow
