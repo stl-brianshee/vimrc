@@ -8,6 +8,7 @@ call vundle#begin()
 
 " Vundle should manage Vundle
 Plugin 'gmarik/Vundle.vim'
+Plugin 'dense-analysis/ale'
 
 " A folding plugin.
 " Plugin 'tmhedberg/SimpylFold' -> Terrible with large files
@@ -99,5 +100,22 @@ set splitright
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+" Only run certain linters
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'python': ['flake8'],
+\}
+let g:ale_linters_explicit = 1
+" Only want linters to run on save.
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+" don't want linters to run on opening a file
+let g:ale_lint_on_enter = 0
+
+" netrw settings:
+let g:netrw_liststyle = 3
+" Remove directory banner
+let g:netrw_banner = 0
 
 execute pathogen#infect()
