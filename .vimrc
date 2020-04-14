@@ -50,9 +50,9 @@ set foldlevel=99
 " Shortcut the toggle
 nnoremap <space> za
 
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set autoindent
 
 " Python indentation, PEP 8
@@ -113,9 +113,20 @@ let g:ale_lint_on_insert_leave = 0
 " don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
 
+" Run certain fixers
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\}
+let g:ale_fix_on_save = 1
+let g:ale_fix_on_enter = 0
+
 " netrw settings:
 let g:netrw_liststyle = 3
 " Remove directory banner
 let g:netrw_banner = 0
+
+" Look for tags recursively in directory of current file and above parent directories.
+set tags=./tags;
 
 execute pathogen#infect()
